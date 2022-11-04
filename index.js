@@ -6,11 +6,10 @@ const port = 3000;
 const app = express();
 const dbWrapper = new DbWrapper(process.env.URL);
 
-app.use("/static", express.static("static"));
 app.use(express.urlencoded({extended: true}));
 
 app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "index.html"));
+	res.sendFile(path.join(__dirname, "main.html"));
 });
 
 let type = 0;
