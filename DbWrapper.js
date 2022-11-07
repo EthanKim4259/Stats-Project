@@ -1,8 +1,9 @@
+const pg = require("pg");
 const {Sequelize, Model, DataTypes} = require("sequelize");
 
 class DbWrapper {
 	constructor(url) {
-		this.sequelize = new Sequelize(url);
+		this.sequelize = new Sequelize(url, {dialectModule: pg});
 		
 		this.Response = this.sequelize.define("response", {
 			type: DataTypes.INTEGER,
