@@ -6,7 +6,6 @@ const port = 3000;
 const app = express();
 const dbWrapper = new DbWrapper(process.env.URL);
 
-app.use("/public", express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
 app.get("/", (req, res) => {
