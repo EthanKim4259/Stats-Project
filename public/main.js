@@ -35,7 +35,7 @@ function displayByType(type) {
 	
 	// Create form element
 	const form = document.createElement("form");
-	form.setAttribute("action", "/post_survey");
+	form.setAttribute("action", "/api/post_survey");
 	form.setAttribute("method", "POST");
 
 	// Add questions in order
@@ -136,7 +136,7 @@ function activateButton(i) {
 
 (async () => {
 	// Fetch survey type
-	const {type} = await fetch("./get_survey")
+	const {type} = await fetch("/api/get_survey")
 		.then(i => i.json());
 	// Build webpage
 	displayByType(type);
