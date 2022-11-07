@@ -19,7 +19,7 @@ let index = 0;
 app.post("/api/post_survey", async (req, res) => {
 	const {type, hours, classes, difficulty} = req.body;
 	await dbWrapper.addData(type, hours, classes, difficulty);
-	res.sendFile(path.join(__dirname, "finish.html"));
+	res.redirect("/finish.html")
 });
 
 app.listen(port, () => {
