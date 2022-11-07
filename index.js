@@ -6,7 +6,7 @@ const port = 3000;
 const app = express();
 const dbWrapper = new DbWrapper(process.env.URL);
 
-app.use(express.static("static"));
+app.use("/static", express.static("static"));
 app.use(express.urlencoded({extended: true}));
 
 app.get("/", (req, res) => {
