@@ -45,10 +45,10 @@ class DbWrapper {
 	}
 
 	async addData(type, hours, classes, difficulty) {
-		if (!DbWrapper.assertType(parseInt(type))) throw "Invalid type";
-		if (!DbWrapper.assertHours(parseInt(hours))) throw "Invalid hours";
-		if (!DbWrapper.assertClasses(parseInt(classes))) throw "Invalid classes";
-		if (!DbWrapper.assertDifficulty(parseInt(classes))) throw "Invalid difficulty";
+		if (!DbWrapper.assertType(parseInt(type))) throw `Invalid type: ${type}`;
+		if (!DbWrapper.assertHours(parseInt(hours))) throw `Invalid hours: ${hours}`;
+		if (!DbWrapper.assertClasses(parseInt(classes))) throw `Invalid classes: ${classes}`;
+		if (!DbWrapper.assertDifficulty(parseInt(difficulty))) throw `Invalid difficulty: ${difficulty}`;
 		
 		const response = await this.Response.create({type, hours, classes, difficulty})
 			.catch(console.error);
